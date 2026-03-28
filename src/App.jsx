@@ -330,7 +330,12 @@ export default function PSTTobaccoDashboard() {
             </div>
           </div>
         )}
->
+        {/* THRESHOLDS TAB */}
+        {tab === 'thresholds' && (
+          <div>
+            <SectionTitle>Critical Thresholds & Predicted Crossover</SectionTitle>
+            <div style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:4,padding:16,marginBottom:16}}>
+              <ResponsiveContainer width="100%" height={Math.max(200, THRESHOLDS.length * 44)}>
                 <BarChart data={THRESHOLDS.map(t=>({...t,yearsFromNow:t.year-2026}))} layout="vertical" margin={{top:10,right:30,left:180,bottom:10}}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                   <XAxis type="number" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:11}} label={{value:"Years from 2026",position:"bottom",fill:C.muted,fontFamily:C.mono,fontSize:11}} />
