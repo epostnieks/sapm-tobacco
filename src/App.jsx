@@ -4,6 +4,7 @@
 // Zero external dependencies beyond React.
 
 import { useState } from 'react';
+import SAPMNav from "./SAPMNav";
 
 const META = {
   title: "Tobacco",
@@ -231,6 +232,7 @@ export default function PSTTobaccoDashboard() {
         <div style={{fontFamily:C.mono,fontSize:9,color:C.muted}}>Erik Postnieks · Wooster LLC · Postnieks Impossibility Program</div>
         <div style={{fontFamily:C.mono,fontSize:9,color:C.muted}}>SAPM Working Paper · 2026</div>
       </div>
-    </div>
+    <SAPMNav />
+      </div>
   );
 }
