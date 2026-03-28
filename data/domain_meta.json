@@ -1,0 +1,138 @@
+{
+  "key": "sapm-tobacco",
+  "meta_fill": {
+    "pi": "$965B",
+    "psa": "-$5.335T",
+    "mu": "0.154",
+    "kappa": "1.40"
+  },
+  "psf": {
+    "pi_c": 280.0,
+    "pi_p": 965.0,
+    "w_c": 6300.0,
+    "kappa": 1.4
+  },
+  "monte_carlo": {
+    "mean": 6.52,
+    "ci_lo": 4.9,
+    "ci_hi": 9.7,
+    "pct_hw": 100.0,
+    "n_draws": 10000,
+    "channels": [
+      {
+        "name": "Premature mortality (VSL)",
+        "dist": "triangular",
+        "lo": 3800,
+        "hi": 5800,
+        "mode": 4750
+      },
+      {
+        "name": "Healthcare & morbidity",
+        "dist": "triangular",
+        "lo": 600,
+        "hi": 1200,
+        "mode": 850
+      },
+      {
+        "name": "Secondhand smoke harm",
+        "dist": "triangular",
+        "lo": 280,
+        "hi": 580,
+        "mode": 420
+      },
+      {
+        "name": "Youth initiation & addiction",
+        "dist": "log-normal",
+        "lo": 120,
+        "hi": 320,
+        "mode": 210
+      },
+      {
+        "name": "Environmental degradation",
+        "dist": "uniform",
+        "lo": 40,
+        "hi": 120,
+        "mode": 75
+      },
+      {
+        "name": "Governance capture",
+        "dist": "triangular",
+        "lo": 25,
+        "hi": 80,
+        "mode": 48
+      }
+    ]
+  },
+  "thresholds": [
+    {
+      "domain": "Global adult smoking prevalence below 20%",
+      "year": 2030,
+      "confidence": "Medium",
+      "status": "Currently ~22%; WHO target is 30% reduction; FCTC implementation uneven",
+      "crossed": false
+    },
+    {
+      "domain": "Plain packaging in >50 countries",
+      "year": 2028,
+      "confidence": "Medium",
+      "status": "Currently ~25 countries; Australia 2012, UK 2016, France 2017, Canada 2019",
+      "crossed": false
+    },
+    {
+      "domain": "U.S. menthol cigarette ban",
+      "year": 2026,
+      "confidence": "Low",
+      "status": "FDA proposal stalled; political opposition from tobacco-state legislators",
+      "crossed": false
+    },
+    {
+      "domain": "First WHO FCTC Article 6 fiscal measures (major tobacco markets)",
+      "year": 2024,
+      "confidence": "High",
+      "status": "Philippines, Bangladesh, Philippines have implemented >75% tax share; U.S. at 44%",
+      "crossed": true
+    },
+    {
+      "domain": "Philip Morris v. Uruguay (plain packaging precedent)",
+      "year": 2016,
+      "confidence": "High",
+      "status": "ICSID upheld Uruguay's plain packaging 2016 \u2014 established legal feasibility",
+      "crossed": true
+    }
+  ],
+  "axioms": {
+    "type": "institutional",
+    "items": [
+      {
+        "id": "I1",
+        "name": "Manufactured scientific uncertainty",
+        "description": "Tobacco companies spent decades funding product-defense science to manufacture doubt about smoking-cancer causation \u2014 a documented historical strategy that delayed regulation by 20-30 years and is the paradigm for all subsequent doubt-manufacturing campaigns."
+      },
+      {
+        "id": "I2",
+        "name": "Nicotine dependency architecture",
+        "description": "Tobacco products are designed to maximize nicotine delivery and maintain dependency; companies manipulated nicotine delivery, pH, and additives specifically to prevent cessation, externalizing the cost of dependency onto users and health systems."
+      },
+      {
+        "id": "I3",
+        "name": "Regulatory preemption through litigation",
+        "description": "Tobacco companies routinely file trade arbitration claims against countries implementing FCTC measures (Philip Morris v. Uruguay, Philip Morris v. Australia), threatening regulatory chill in lower-income countries unable to bear litigation costs."
+      }
+    ]
+  },
+  "methods": {
+    "welfare_function": "W computed via VSL-weighted premature mortality (8M deaths/year at WHO global average VSL), direct healthcare costs (WHO estimates), secondhand smoke harm (global burden of disease), youth initiation lifetime harm, and environmental costs (cigarette butts, agricultural land use).",
+    "cooperative_baseline": "Nicotine market limited to harm-minimization products (NRT, approved e-cigarettes) with zero youth initiation and registered adult-only access, generating $280B in legitimate nicotine delivery value at fraction of current harm.",
+    "key_sources": [
+      "WHO, Report on the Global Tobacco Epidemic (2023)",
+      "GBD 2019 Tobacco Collaborators, Lancet (2021)",
+      "Proctor, Golden Holocaust (2012)",
+      "ICSID, Philip Morris v. Uruguay Award (2016)"
+    ],
+    "falsification": [
+      "F1: Demonstrate that Uruguay's comprehensive FCTC MPOWER implementation failed to reduce adult smoking prevalence, contradicting WHO and PAHO monitoring data.",
+      "F2: Show that tobacco companies did not manipulate nicotine delivery and pH to maximize dependency, contradicting the 2006 U.S. v. Philip Morris trial findings.",
+      "F3: Demonstrate that the tobacco-cancer causal relationship was not known within the industry prior to 1964, contradicting the tobacco company internal document archive."
+    ]
+  }
+}
