@@ -80,14 +80,14 @@ const C = {
 function Metric({ label, value, sub, color }) {
   return (
     <div style={{flex:1,minWidth:140,background:C.panel,border:`1px solid ${C.border}`,borderRadius:3,padding:'12px 16px'}}>
-      <div style={{fontFamily:C.mono,fontSize:9,color:C.muted,letterSpacing:1,marginBottom:4}}>{label}</div>
-      <div style={{fontFamily:C.mono,fontSize:22,fontWeight:700,color:color||C.gold,lineHeight:1}}>{value}</div>
-      {sub && <div style={{fontFamily:C.mono,fontSize:9,color:C.muted,marginTop:4}}>{sub}</div>}
+      <div style={{fontFamily:C.mono,fontSize:11,color:C.muted,letterSpacing:1,marginBottom:4}}>{label}</div>
+      <div style={{fontFamily:C.mono,fontSize:28,fontWeight:700,color:color||C.gold,lineHeight:1}}>{value}</div>
+      {sub && <div style={{fontFamily:C.mono,fontSize:11,color:C.muted,marginTop:4}}>{sub}</div>}
     </div>
   );
 }
 function SectionTitle({ children }) {
-  return <div style={{fontFamily:C.mono,fontSize:10,color:C.muted,letterSpacing:2,borderBottom:`1px solid ${C.border}`,paddingBottom:6,marginBottom:12,marginTop:20,textTransform:'uppercase'}}>{children}</div>;
+  return <div style={{fontFamily:C.mono,fontSize:12,color:C.muted,letterSpacing:2,borderBottom:`1px solid ${C.border}`,paddingBottom:6,marginBottom:12,marginTop:20,textTransform:'uppercase'}}>{children}</div>;
 }
 function BetaBar({ beta, max }) {
   const pct = Math.min(100,(parseFloat(beta)||0)/(max||15)*100);
@@ -107,21 +107,21 @@ export default function PSTTobaccoDashboard() {
 
       <div style={{background:C.panel,borderBottom:`2px solid ${C.gold}`,padding:'14px 24px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
         <div>
-          <div style={{fontFamily:C.mono,fontSize:9,color:C.muted,letterSpacing:2,marginBottom:4}}>POSTNIEKS IMPOSSIBILITY PROGRAM · SAPM</div>
-          <div style={{fontFamily:C.serif,fontSize:20,fontWeight:700,color:C.text}}>{META.title}</div>
-          {META.subtitle && <div style={{fontFamily:C.serif,fontSize:13,color:C.muted,marginTop:2,fontStyle:'italic'}}>{META.subtitle}</div>}
+          <div style={{fontFamily:C.mono,fontSize:11,color:C.muted,letterSpacing:2,marginBottom:4}}>POSTNIEKS IMPOSSIBILITY PROGRAM · SAPM</div>
+          <div style={{fontFamily:C.serif,fontSize:24,fontWeight:700,color:C.text}}>{META.title}</div>
+          {META.subtitle && <div style={{fontFamily:C.serif,fontSize:15,color:C.muted,marginTop:2,fontStyle:'italic'}}>{META.subtitle}</div>}
         </div>
         <div style={{textAlign:'right'}}>
-          <div style={{fontFamily:C.mono,fontSize:9,color:C.muted,letterSpacing:1}}>SYSTEM BETA</div>
-          <div style={{fontFamily:C.mono,fontSize:32,fontWeight:700,color:C.gold,lineHeight:1}}>β_W = {META.beta}</div>
-          {META.ci && <div style={{fontFamily:C.mono,fontSize:9,color:C.muted}}>90% CI [{META.ci}]</div>}
+          <div style={{fontFamily:C.mono,fontSize:11,color:C.muted,letterSpacing:1}}>SYSTEM BETA</div>
+          <div style={{fontFamily:C.mono,fontSize:36,fontWeight:700,color:C.gold,lineHeight:1}}>β_W = {META.beta}</div>
+          {META.ci && <div style={{fontFamily:C.mono,fontSize:11,color:C.muted}}>90% CI [{META.ci}]</div>}
         </div>
       </div>
 
       <div style={{background:'rgba(245,158,11,0.06)',padding:'8px 24px',display:'flex',gap:10,alignItems:'center',borderBottom:`1px solid ${C.border}`}}>
-        <span style={{background:'rgba(34,197,94,0.15)',color:'#22C55E',fontSize:10,padding:'3px 8px',borderRadius:2,fontFamily:"'JetBrains Mono',monospace",letterSpacing:0.5}}>INSTITUTIONAL PST</span>
-        <span style={{fontFamily:C.mono,fontSize:10,color:C.muted}}>{META.type}</span>
-        {META.companion && <a href={META.companion} target="_blank" rel="noreferrer" style={{marginLeft:'auto',fontFamily:C.mono,fontSize:9,color:C.gold,textDecoration:'none'}}>↗ Companion</a>}
+        <span style={{background:'rgba(34,197,94,0.15)',color:'#22C55E',fontSize:12,padding:'4px 10px',borderRadius:2,fontFamily:"'JetBrains Mono',monospace",letterSpacing:0.5}}>INSTITUTIONAL PST</span>
+        <span style={{fontFamily:C.mono,fontSize:12,color:C.muted}}>{META.type}</span>
+        {META.companion && <a href={META.companion} target="_blank" rel="noreferrer" style={{marginLeft:'auto',fontFamily:C.mono,fontSize:11,color:C.gold,textDecoration:'none'}}>↗ Companion</a>}
       </div>
 
       <div style={{background:C.panel,borderBottom:`1px solid ${C.border}`,padding:'0 24px',display:'flex',gap:4}}>
@@ -147,11 +147,11 @@ export default function PSTTobaccoDashboard() {
                 <SectionTitle>Channel Decomposition — Welfare Cost Waterfall</SectionTitle>
                 {CHANNELS.map((ch,i)=>(
                   <div key={i} style={{display:'flex',alignItems:'center',marginBottom:8,gap:8}}>
-                    <div style={{fontFamily:C.mono,fontSize:10,color:C.muted,width:18,textAlign:'right'}}>{ch.id}</div>
-                    <div style={{fontFamily:C.serif,fontSize:13,color:C.text,width:280,flexShrink:0}}>{ch.name}</div>
+                    <div style={{fontFamily:C.mono,fontSize:12,color:C.muted,width:22,textAlign:'right'}}>{ch.id}</div>
+                    <div style={{fontFamily:C.serif,fontSize:15,color:C.text,width:300,flexShrink:0}}>{ch.name}</div>
                     <BetaBar beta={ch.beta} max={parseFloat(META.beta)||15}/>
-                    <div style={{fontFamily:C.mono,fontSize:11,color:C.gold,width:50,textAlign:'right'}}>{ch.beta}</div>
-                    <div style={{fontFamily:C.mono,fontSize:10,color:C.muted,width:100,textAlign:'right'}}>{ch.value}</div>
+                    <div style={{fontFamily:C.mono,fontSize:13,color:C.gold,width:55,textAlign:'right'}}>{ch.beta}</div>
+                    <div style={{fontFamily:C.mono,fontSize:13,color:C.text,width:110,textAlign:'right'}}>{ch.value}</div>
                   </div>
                 ))}
               </div>
@@ -162,7 +162,7 @@ export default function PSTTobaccoDashboard() {
         {tab==='channels' && (
           <div>
             <SectionTitle>Channel-by-Channel Breakdown</SectionTitle>
-            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:11}}>
+            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
               <thead>
                 <tr style={{background:C.thead}}>
                   {['#','Channel','β_W(i)','δ_i ($/yr)','Weight'].map(h=>(
@@ -174,7 +174,7 @@ export default function PSTTobaccoDashboard() {
                 {CHANNELS.map((ch,i)=>(
                   <tr key={i} style={{background:i%2===0?C.panel:C.bg}}>
                     <td style={{padding:'8px 12px',color:C.muted,borderBottom:`1px solid ${C.border}`}}>{ch.id}</td>
-                    <td style={{padding:'8px 12px',color:C.text,fontFamily:C.serif,fontSize:12,borderBottom:`1px solid ${C.border}`}}>{ch.name}</td>
+                    <td style={{padding:'8px 12px',color:C.text,fontFamily:C.serif,fontSize:14,borderBottom:`1px solid ${C.border}`}}>{ch.name}</td>
                     <td style={{padding:'8px 12px',color:C.gold,textAlign:'right',borderBottom:`1px solid ${C.border}`}}>{ch.beta}</td>
                     <td style={{padding:'8px 12px',color:C.text,textAlign:'right',borderBottom:`1px solid ${C.border}`}}>{ch.value}</td>
                     <td style={{padding:'8px 12px',color:C.muted,textAlign:'right',borderBottom:`1px solid ${C.border}`}}>{ch.weight}</td>
@@ -182,7 +182,7 @@ export default function PSTTobaccoDashboard() {
                 ))}
                 <tr style={{background:C.thead}}>
                   <td colSpan={2} style={{padding:'10px 12px',color:C.gold,fontWeight:700}}>AGGREGATE β_W</td>
-                  <td colSpan={3} style={{padding:'10px 12px',color:C.gold,fontWeight:700,fontSize:14,textAlign:'right'}}>{META.beta}</td>
+                  <td colSpan={3} style={{padding:'10px 12px',color:C.gold,fontWeight:700,fontSize:16,textAlign:'right'}}>{META.beta}</td>
                 </tr>
               </tbody>
             </table>
@@ -192,7 +192,7 @@ export default function PSTTobaccoDashboard() {
         {tab==='cross-domain' && (
           <div>
             <SectionTitle>Cross-Domain SAPM Registry</SectionTitle>
-            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:11}}>
+            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
               <thead>
                 <tr style={{background:C.thead}}>
                   {['Domain','β_W','PST Type','Π ($/yr)'].map(h=>(
@@ -203,7 +203,7 @@ export default function PSTTobaccoDashboard() {
               <tbody>
                 {[...CROSS_DOMAIN].sort((a,b)=>(parseFloat(b.beta)||0)-(parseFloat(a.beta)||0)).map((d,i)=>(
                   <tr key={i} style={{background:d.domain===META.title?'rgba(34,197,94,0.08)':i%2===0?C.panel:C.bg}}>
-                    <td style={{padding:'8px 12px',color:d.domain===META.title?'#22C55E':C.text,fontFamily:C.serif,fontSize:12,borderBottom:`1px solid ${C.border}`}}>{d.domain===META.title?'▶ ':''}{d.domain}</td>
+                    <td style={{padding:'8px 12px',color:d.domain===META.title?'#22C55E':C.text,fontFamily:C.serif,fontSize:14,borderBottom:`1px solid ${C.border}`}}>{d.domain===META.title?'▶ ':''}{d.domain}</td>
                     <td style={{padding:'8px 12px',color:parseFloat(d.beta)>10?C.crimson:C.gold,textAlign:'right',fontWeight:700,borderBottom:`1px solid ${C.border}`}}>{d.beta}</td>
                     <td style={{padding:'8px 12px',color:C.muted,borderBottom:`1px solid ${C.border}`}}>{d.type}</td>
                     <td style={{padding:'8px 12px',color:C.text,textAlign:'right',borderBottom:`1px solid ${C.border}`}}>{d.pi}</td>
@@ -220,7 +220,7 @@ export default function PSTTobaccoDashboard() {
             {HIGHLIGHTS.map((h,i)=>(
               <div key={i} style={{display:'flex',gap:12,marginBottom:12,background:C.panel,border:`1px solid ${C.border}`,borderRadius:3,padding:'12px 16px'}}>
                 <div style={{fontFamily:C.mono,fontSize:16,color:C.gold,flexShrink:0}}>▸</div>
-                <div style={{fontFamily:C.serif,fontSize:14,color:C.text,lineHeight:1.6}}>{h}</div>
+                <div style={{fontFamily:C.serif,fontSize:15,color:C.text,lineHeight:1.7}}>{h}</div>
               </div>
             ))}
           </div>
@@ -231,32 +231,32 @@ export default function PSTTobaccoDashboard() {
       
       {/* 𝒮_W WELFARE EFFICIENCY RATIO */}
       <div style={{padding:"24px",background:C.panel,border:"2px solid #D9770640",borderRadius:4,margin:"24px 0"}}>
-        <div style={{fontFamily:C.mono,fontSize:10,color:"#D97706",letterSpacing:2,marginBottom:16}}>WELFARE EFFICIENCY RATIO</div>
+        <div style={{fontFamily:C.mono,fontSize:12,color:"#D97706",letterSpacing:2,marginBottom:16}}>WELFARE EFFICIENCY RATIO</div>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:12}}>
           <span style={{fontFamily:C.mono,fontSize:42,fontWeight:700,color:"#D97706"}}>𝒮_W = 0.15</span>
         </div>
-        <div style={{fontFamily:C.mono,fontSize:11,color:C.muted,marginBottom:16}}>
+        <div style={{fontFamily:C.mono,fontSize:13,color:C.muted,marginBottom:16}}>
           S&P 500 long-run Sharpe ≈ 0.40 &nbsp;|&nbsp; Acceptable ≥ 0.30 &nbsp;|&nbsp; Poor &lt; 0.10
         </div>
-        <div style={{fontFamily:C.serif,fontSize:14,color:"#D97706",lineHeight:1.7,fontStyle:"italic"}}>
+        <div style={{fontFamily:C.serif,fontSize:16,color:"#D97706",lineHeight:1.7,fontStyle:"italic"}}>
           A Sharpe ratio this low would cause any fund manager to liquidate the position immediately.
         </div>
       </div>
 
       {/* GREEK SYMBOL GLOSSARY */}
       <details style={{margin:"24px 0"}}>
-        <summary style={{fontFamily:C.mono,fontSize:11,color:C.gold,cursor:"pointer",padding:"12px 16px",background:C.panel,border:"1px solid rgba(245,158,11,0.15)",borderRadius:4,letterSpacing:1,listStyle:"none",display:"flex",alignItems:"center",gap:8}}>
+        <summary style={{fontFamily:C.mono,fontSize:13,color:C.gold,cursor:"pointer",padding:"12px 16px",background:C.panel,border:"1px solid rgba(245,158,11,0.15)",borderRadius:4,letterSpacing:1,listStyle:"none",display:"flex",alignItems:"center",gap:8}}>
           <span style={{color:C.gold,fontSize:14}}>▸</span> WHAT THESE SYMBOLS MEAN — AND WHY THEY MATTER
         </summary>
         <div style={{background:C.panel,border:"1px solid rgba(245,158,11,0.15)",borderTop:"none",borderRadius:"0 0 4px 4px",padding:"16px",overflowX:"auto"}}>
-          <table style={{width:"100%",borderCollapse:"collapse",fontFamily:C.mono,fontSize:11}}>
+          <table style={{width:"100%",borderCollapse:"collapse",fontFamily:C.mono,fontSize:13}}>
             <thead>
               <tr style={{borderBottom:"1px solid rgba(255,255,255,0.1)"}}>
-                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:10,letterSpacing:1}}>SYMBOL</th>
-                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:10,letterSpacing:1}}>PRONOUNCED</th>
-                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:10,letterSpacing:1}}>WHAT IT MEASURES</th>
-                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:10,letterSpacing:1}}>CAPM EQUIVALENT</th>
-                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:10,letterSpacing:1}}>WHY IT MATTERS</th>
+                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:12,letterSpacing:1}}>SYMBOL</th>
+                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:12,letterSpacing:1}}>PRONOUNCED</th>
+                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:12,letterSpacing:1}}>WHAT IT MEASURES</th>
+                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:12,letterSpacing:1}}>CAPM EQUIVALENT</th>
+                <th style={{textAlign:"left",padding:"8px 10px",color:C.gold,fontSize:12,letterSpacing:1}}>WHY IT MATTERS</th>
               </tr>
             </thead>
             <tbody>
@@ -330,8 +330,8 @@ export default function PSTTobaccoDashboard() {
 
       {/* Footer */}
       <div style={{background:C.panel,borderTop:`1px solid ${C.border}`,padding:'10px 24px',display:'flex',justifyContent:'space-between',marginTop:40}}>
-        <div style={{fontFamily:C.mono,fontSize:9,color:C.muted}}>Erik Postnieks · Wooster LLC · Postnieks Impossibility Program</div>
-        <div style={{fontFamily:C.mono,fontSize:9,color:C.muted}}>SAPM Working Paper · 2026</div>
+        <div style={{fontFamily:C.mono,fontSize:11,color:C.muted}}>Erik Postnieks · Wooster LLC · Postnieks Impossibility Program</div>
+        <div style={{fontFamily:C.mono,fontSize:11,color:C.muted}}>SAPM Working Paper · 2026</div>
       </div>
     <SAPMNav />
       </div>
