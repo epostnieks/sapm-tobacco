@@ -9,8 +9,8 @@ import SAPMNav from "./SAPMNav";
 const META = {
   title: "Tobacco",
   subtitle: "System Welfare Cost of Combustible Nicotine Addiction",
-  beta: "6.5",
-  ci: "4.9–9.7",
+  beta: "6.80",
+  ci: "5.54–8.28",
   pi: "$965B",
   psa: "−$4.44T",
   mu: "$0.196",
@@ -68,6 +68,26 @@ const HIGHLIGHTS = [
         "Governance mode: regulatory capture + information asymmetry + addiction-mediated demand inelasticity. All three documented across >195 countries.",
         "No impossibility theorem: FCTC-implementing nations demonstrate the barriers are political, not structural. Correction pathway fully identified.",
 ];
+
+
+const PSF_PARAMS = {pi_c:280.0,pi_p:965.0,w_c:6300.0,kappa:1.4};
+const PSF_DATA = [{pi:28.0,w:5106.32},{pi:68.88,w:5462.19},{pi:109.77,w:5755.3},{pi:150.65,w:5985.5},{pi:191.53,w:6152.88},{pi:232.42,w:6257.45},{pi:273.3,w:6299.16},{pi:314.18,w:6278.04},{pi:355.07,w:6194.07},{pi:395.95,w:6047.29},{pi:436.83,w:5837.68},{pi:477.72,w:5565.17},{pi:518.6,w:5229.89},{pi:559.48,w:4831.79},{pi:600.37,w:4370.74},{pi:641.25,w:3846.97},{pi:682.13,w:3260.37},{pi:723.02,w:2610.78},{pi:763.9,w:1898.52},{pi:804.78,w:1123.43},{pi:845.67,w:285.3},{pi:886.55,w:-615.45},{pi:927.43,w:-1579.04},{pi:968.32,w:-2605.7},{pi:1009.2,w:-3694.95},{pi:1050.08,w:-4847.03},{pi:1090.97,w:-6062.24},{pi:1131.85,w:-7339.98},{pi:1172.73,w:-8680.55},{pi:1213.62,w:-10084.29},{pi:1254.5,w:-11550.53}];
+
+const MC_HIST = [{bin:"5.10",lo:5.1017,hi:5.1785,count:37},{bin:"5.18",lo:5.1785,hi:5.2552,count:49},{bin:"5.26",lo:5.2552,hi:5.3319,count:71},{bin:"5.33",lo:5.3319,hi:5.4087,count:91},{bin:"5.41",lo:5.4087,hi:5.4854,count:109},{bin:"5.49",lo:5.4854,hi:5.5621,count:148},{bin:"5.56",lo:5.5621,hi:5.6389,count:164},{bin:"5.64",lo:5.6389,hi:5.7156,count:198},{bin:"5.72",lo:5.7156,hi:5.7923,count:229},{bin:"5.79",lo:5.7923,hi:5.8691,count:250},{bin:"5.87",lo:5.8691,hi:5.9458,count:297},{bin:"5.95",lo:5.9458,hi:6.0226,count:321},{bin:"6.02",lo:6.0226,hi:6.0993,count:294},{bin:"6.10",lo:6.0993,hi:6.1760,count:331},{bin:"6.18",lo:6.1760,hi:6.2528,count:323},{bin:"6.25",lo:6.2528,hi:6.3295,count:333},{bin:"6.33",lo:6.3295,hi:6.4062,count:330},{bin:"6.41",lo:6.4062,hi:6.4830,count:321},{bin:"6.48",lo:6.4830,hi:6.5597,count:344},{bin:"6.56",lo:6.5597,hi:6.6364,count:314},{bin:"6.64",lo:6.6364,hi:6.7132,count:315},{bin:"6.71",lo:6.7132,hi:6.7899,count:314},{bin:"6.79",lo:6.7899,hi:6.8666,count:314},{bin:"6.87",lo:6.8666,hi:6.9434,count:325},{bin:"6.94",lo:6.9434,hi:7.0201,count:307},{bin:"7.02",lo:7.0201,hi:7.0968,count:273},{bin:"7.10",lo:7.0968,hi:7.1736,count:277},{bin:"7.17",lo:7.1736,hi:7.2503,count:278},{bin:"7.25",lo:7.2503,hi:7.3271,count:260},{bin:"7.33",lo:7.3271,hi:7.4038,count:251},{bin:"7.40",lo:7.4038,hi:7.4805,count:225},{bin:"7.48",lo:7.4805,hi:7.5573,count:244},{bin:"7.56",lo:7.5573,hi:7.6340,count:218},{bin:"7.63",lo:7.6340,hi:7.7107,count:187},{bin:"7.71",lo:7.7107,hi:7.7875,count:181},{bin:"7.79",lo:7.7875,hi:7.8642,count:190},{bin:"7.86",lo:7.8642,hi:7.9409,count:153},{bin:"7.94",lo:7.9409,hi:8.0177,count:151},{bin:"8.02",lo:8.0177,hi:8.0944,count:127},{bin:"8.09",lo:8.0944,hi:8.1711,count:155},{bin:"8.17",lo:8.1711,hi:8.2479,count:104},{bin:"8.25",lo:8.2479,hi:8.3246,count:89},{bin:"8.32",lo:8.3246,hi:8.4013,count:84},{bin:"8.40",lo:8.4013,hi:8.4781,count:62},{bin:"8.48",lo:8.4781,hi:8.5548,count:60},{bin:"8.55",lo:8.5548,hi:8.6315,count:64},{bin:"8.63",lo:8.6315,hi:8.7083,count:48},{bin:"8.71",lo:8.7083,hi:8.7850,count:41},{bin:"8.79",lo:8.7850,hi:8.8618,count:29},{bin:"8.86",lo:8.8618,hi:8.9385,count:20}];
+const MC_STATS = {mean:6.8001,median:6.7307,ci_lo:5.5372,ci_hi:8.2838,pct_hw:100.0,pct_above_3:100.0,pct_above_5:99.8,min:4.7707,max:9.6349,n_draws:10000,seed:42};
+const MC_CHANNELS = [{name:"Premature mortality (VSL)",mean:4788.10,p5:4114.16,p50:4776.88,p95:5481.57,share:0.7305},{name:"Healthcare & morbidity",mean:883.91,p5:687.89,p50:876.69,p95:1094.50,share:0.1349},{name:"Secondhand smoke harm",mean:427.12,p5:326.30,p50:424.95,p95:531.91,share:0.0652},{name:"Youth initiation & addict.",mean:323.77,p5:242.60,p50:317.89,p95:421.96,share:0.0494},{name:"Environmental degradation",mean:80.45,p5:43.94,p50:80.83,p95:116.40,share:0.0123},{name:"Governance capture",mean:51.15,p5:32.94,p50:50.66,p95:70.89,share:0.0078}];
+const MC_WELFARE = {mean:6554.49,ci_lo:5847.37,ci_hi:7285.49};
+
+const THRESHOLDS = [{domain:"Global adult smoking prevalence below 20%",year:2030,confidence:"Medium",status:"Currently ~22%; WHO target is 30% reduction; FCTC implementation uneven",crossed:false},{domain:"Plain packaging in >50 countries",year:2028,confidence:"Medium",status:"Currently ~25 countries; Australia 2012, UK 2016, France 2017, Canada 2019",crossed:false},{domain:"U.S. menthol cigarette ban",year:2026,confidence:"Low",status:"FDA proposal stalled; political opposition from tobacco-state legislators",crossed:false},{domain:"First WHO FCTC Article 6 fiscal measures (major tobacco markets)",year:2024,confidence:"High",status:"Philippines, Bangladesh, Philippines have implemented >75% tax share; U.S. at 44%",crossed:true},{domain:"Philip Morris v. Uruguay (plain packaging precedent)",year:2016,confidence:"High",status:"ICSID upheld Uruguay\'s plain packaging 2016 — established legal feasibility",crossed:true}];
+
+const AXIOMS = {type:"institutional",items:[{id:"I1",name:"Manufactured scientific uncertainty",description:"Tobacco companies spent decades funding product-defense science to manufacture doubt about smoking-cancer causation — a documented historical strategy that delayed regulation by 20-30 years and is the paradigm for all subsequent doubt-manufacturing campaigns."},{id:"I2",name:"Nicotine dependency architecture",description:"Tobacco products are designed to maximize nicotine delivery and maintain dependency; companies manipulated nicotine delivery, pH, and additives specifically to prevent cessation, externalizing the cost of dependency onto users and health systems."},{id:"I3",name:"Regulatory preemption through litigation",description:"Tobacco companies routinely file trade arbitration claims against countries implementing FCTC measures (Philip Morris v. Uruguay, Philip Morris v. Australia), threatening regulatory chill in lower-income countries unable to bear litigation costs."}]};
+
+const METHODS_DATA = {
+  welfare_function: "W computed via VSL-weighted premature mortality (8M deaths/year at WHO global average VSL), direct healthcare costs (WHO estimates), secondhand smoke harm (global burden of disease), youth initiation lifetime harm, and environmental costs (cigarette butts, agricultural land use).",
+  cooperative_baseline: "Nicotine market limited to harm-minimization products (NRT, approved e-cigarettes) with zero youth initiation and registered adult-only access, generating $280B in legitimate nicotine delivery value at fraction of current harm.",
+  falsification: ["F1: Demonstrate that Uruguay\'s comprehensive FCTC MPOWER implementation failed to reduce adult smoking prevalence, contradicting WHO and PAHO monitoring data.","F2: Show that tobacco companies did not manipulate nicotine delivery and pH to maximize dependency, contradicting the 2006 U.S. v. Philip Morris trial findings.","F3: Demonstrate that the tobacco-cancer causal relationship was not known within the industry prior to 1964, contradicting the tobacco company internal document archive."],
+  key_sources: ["WHO, Report on the Global Tobacco Epidemic (2023)","GBD 2019 Tobacco Collaborators, Lancet (2021)","Proctor, Golden Holocaust (2012)","ICSID, Philip Morris v. Uruguay Award (2016)"]
+};
 
 const C = {
   bg:'#0D0D0D', panel:'#1A1A1A', border:'rgba(255,255,255,0.08)',
@@ -258,58 +278,59 @@ export default function PSTTobaccoDashboard() {
         )}
 
         {/* MONTE CARLO TAB */}
+
+        {/* MONTE CARLO TAB */}
         {tab === 'monte-carlo' && (
           <div>
-            <SectionTitle>Monte Carlo Robustness — {MC_PARAMS.n_draws.toLocaleString()} Draws</SectionTitle>
+            <SectionTitle>Monte Carlo Simulation — {MC_STATS.n_draws.toLocaleString()} Draws (seed={MC_STATS.seed})</SectionTitle>
             <div style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:4,padding:16,marginBottom:16}}>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={MC_DATA} margin={{top:10,right:30,left:20,bottom:10}}>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={MC_HIST} margin={{top:10,right:30,left:20,bottom:30}}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                  <XAxis dataKey="bin" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:10}} />
+                  <XAxis dataKey="bin" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:9}} angle={-45} textAnchor="end" interval={4} />
                   <YAxis stroke={C.muted} tick={{fontFamily:C.mono,fontSize:11}} />
-                  <Tooltip contentStyle={{background:C.panel,border:`1px solid ${C.border}`,fontFamily:C.mono,fontSize:12,color:C.text}} />
+                  <Tooltip contentStyle={{background:C.panel,border:`1px solid ${C.border}`,fontFamily:C.mono,fontSize:12,color:C.text}} formatter={(v)=>[v,'Draws']} />
                   <Bar dataKey="count" fill={C.gold} />
-                  <ReferenceLine x={MC_PARAMS.mean.toFixed(1)} stroke={C.crimson} strokeDasharray="5 5" label={{value:'β̄='+MC_PARAMS.mean,fill:C.crimson,fontFamily:C.mono,fontSize:11}} />
+                  <ReferenceLine x={MC_STATS.mean.toFixed(2)} stroke={C.crimson} strokeWidth={2} strokeDasharray="5 5" label={{value:'μ='+MC_STATS.mean.toFixed(2),fill:C.crimson,fontFamily:C.mono,fontSize:11,position:'top'}} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
             <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:16}}>
-              <Metric label="MEAN β_W" value={MC_PARAMS.mean} color={C.gold} />
-              <Metric label="90% CI" value={'['+MC_PARAMS.ci_lo+', '+MC_PARAMS.ci_hi+']'} color={C.muted} />
-              <Metric label="% HOLLOW WIN" value={MC_PARAMS.pct_hw+'%'} color={MC_PARAMS.pct_hw > 90 ? C.crimson : C.gold} />
+              <Metric label="MEAN β_W" value={MC_STATS.mean.toFixed(2)} sub={'Median: '+MC_STATS.median.toFixed(2)} color={C.gold} />
+              <Metric label="90% CI" value={'['+MC_STATS.ci_lo.toFixed(2)+', '+MC_STATS.ci_hi.toFixed(2)+']'} sub={'Range: '+MC_STATS.min.toFixed(2)+'–'+MC_STATS.max.toFixed(2)} color={C.muted} />
+              <Metric label="% HOLLOW WIN" value={MC_STATS.pct_hw.toFixed(1)+'%'} sub={'β_W > 1 in all draws'} color={MC_STATS.pct_hw > 95 ? C.crimson : C.gold} />
+              <Metric label="% β_W > 3" value={MC_STATS.pct_above_3.toFixed(1)+'%'} color={MC_STATS.pct_above_3 > 90 ? C.crimson : C.gold} />
+              <Metric label="% β_W > 5" value={MC_STATS.pct_above_5.toFixed(1)+'%'} color={MC_STATS.pct_above_5 > 50 ? '#D97706' : C.gold} />
             </div>
-            {MC_PARAMS.channels && MC_PARAMS.channels.length > 0 && (
-              <div style={{padding:16,background:C.panel,border:`1px solid ${C.border}`,borderRadius:4}}>
-                <div style={{fontFamily:C.mono,fontSize:12,color:C.gold,marginBottom:8}}>DISTRIBUTION PARAMETERS</div>
-                <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
-                  <thead><tr style={{borderBottom:`1px solid ${C.border}`}}>
-                    <th style={{padding:'6px 10px',textAlign:'left',color:C.gold}}>CHANNEL</th>
-                    <th style={{padding:'6px 10px',textAlign:'left',color:C.gold}}>DISTRIBUTION</th>
-                    <th style={{padding:'6px 10px',textAlign:'right',color:C.gold}}>LOW</th>
-                    <th style={{padding:'6px 10px',textAlign:'right',color:C.gold}}>HIGH</th>
-                  </tr></thead>
-                  <tbody>
-                    {MC_PARAMS.channels.map((ch,i) => (
-                      <tr key={i} style={{borderBottom:`1px solid rgba(255,255,255,0.04)`}}>
-                        <td style={{padding:'6px 10px',color:C.text}}>{ch.name}</td>
-                        <td style={{padding:'6px 10px',color:C.muted}}>{ch.dist}</td>
-                        <td style={{padding:'6px 10px',color:C.muted,textAlign:'right'}}>{ch.lo}</td>
-                        <td style={{padding:'6px 10px',color:C.muted,textAlign:'right'}}>{ch.hi}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+            <SectionTitle>Channel Welfare Contributions</SectionTitle>
+            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
+              <thead><tr style={{borderBottom:`1px solid ${C.border}`}}>
+                <th style={{padding:'8px 12px',textAlign:'left',color:C.gold}}>CHANNEL</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>MEAN $B</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P5</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P50</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P95</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>SHARE</th>
+              </tr></thead>
+              <tbody>
+                {MC_CHANNELS.map((ch,i) => (
+                  <tr key={i} style={{borderBottom:`1px solid rgba(255,255,255,0.04)`,background:i%2===0?C.panel:C.bg}}>
+                    <td style={{padding:'8px 12px',color:C.text,fontFamily:C.serif,fontSize:14}}>{ch.name}</td>
+                    <td style={{padding:'8px 12px',color:C.gold,textAlign:'right',fontWeight:600}}>{ch.mean.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p5.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p50.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p95.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{(ch.share*100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div style={{marginTop:16,padding:12,background:'rgba(245,158,11,0.06)',border:`1px solid rgba(245,158,11,0.15)`,borderRadius:4}}>
+              <div style={{fontFamily:C.mono,fontSize:11,color:C.muted}}>Total welfare cost: <span style={{color:C.gold}}>${MC_WELFARE.mean.toFixed(1)}B</span> (90% CI: ${MC_WELFARE.ci_lo.toFixed(1)}B – ${MC_WELFARE.ci_hi.toFixed(1)}B) · Source: sapm_monte_carlo.py (seed=42)</div>
+            </div>
           </div>
         )}
-
-        {/* THRESHOLDS TAB */}
-        {tab === 'thresholds' && (
-          <div>
-            <SectionTitle>Critical Thresholds & Predicted Crossover</SectionTitle>
-            <div style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:4,padding:16,marginBottom:16}}>
-              <ResponsiveContainer width="100%" height={Math.max(200, THRESHOLDS.length * 44)}>
+>
                 <BarChart data={THRESHOLDS.map(t=>({...t,yearsFromNow:t.year-2026}))} layout="vertical" margin={{top:10,right:30,left:180,bottom:10}}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                   <XAxis type="number" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:11}} label={{value:"Years from 2026",position:"bottom",fill:C.muted,fontFamily:C.mono,fontSize:11}} />
